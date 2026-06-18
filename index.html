@@ -1,1 +1,771 @@
-Hello
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trophy & Awards Engraving Shop | Celebrate Excellence</title>
+  <meta name="description" content="Premium custom trophies, plaques, medals and crystal awards with expert laser and rotary engraving. Serving schools, sports clubs and corporate clients." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+
+  <style>
+    /* ── Page-specific styles ── */
+    /* Hero */
+    .home-hero { min-height: 100vh; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--gold);
+      border: 1px solid rgba(201,168,76,0.35);
+      padding: 0.4rem 1rem; border-radius: var(--radius-full);
+      margin-bottom: var(--space-md); backdrop-filter: blur(8px);
+      background: rgba(201,168,76,0.08);
+    }
+    .hero-title { margin-bottom: var(--space-md); }
+    .hero-title em { font-style: italic; }
+    .hero-subtitle {
+      font-size: 1.15rem; color: var(--white-70);
+      max-width: 560px; margin-bottom: var(--space-xl); line-height: 1.75;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: var(--space-xl); }
+    .hero-badges { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-full); padding: 0.35rem 0.9rem;
+      font-size: 0.78rem; color: var(--white-70); backdrop-filter: blur(8px);
+    }
+    .hero-badge .icon { color: var(--gold); }
+    .hero-image-col {
+      position: relative; display: flex; align-items: center; justify-content: center;
+    }
+    .hero-img-frame {
+      position: relative; border-radius: var(--radius-xl);
+      overflow: hidden; border: 2px solid rgba(201,168,76,0.25);
+      box-shadow: 0 40px 100px rgba(0,0,0,0.6), var(--shadow-glow);
+      max-width: 480px; width: 100%;
+    }
+    .hero-img-frame img { width: 100%; height: 500px; object-fit: cover; display: block; }
+    .hero-floating-badge {
+      position: absolute; background: var(--gold-gradient); color: var(--navy);
+      padding: 0.65rem 1.1rem; border-radius: var(--radius-md);
+      font-size: 0.8rem; font-weight: 700; box-shadow: var(--shadow-gold);
+      display: flex; align-items: center; gap: 0.4rem; white-space: nowrap;
+    }
+    .hero-floating-badge.top-left { top: -1rem; left: -1.5rem; }
+    .hero-floating-badge.bottom-right { bottom: 1.5rem; right: -1.5rem; }
+    .hero-scroll-indicator {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      text-align: center; display: flex; flex-direction: column;
+      align-items: center; gap: 0.5rem;
+    }
+    .scroll-text { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); }
+    .scroll-wheel {
+      width: 24px; height: 40px; border: 2px solid rgba(201,168,76,0.4);
+      border-radius: 12px; display: flex; align-items: flex-start;
+      justify-content: center; padding-top: 5px;
+    }
+    .scroll-dot { width: 4px; height: 8px; background: var(--gold); border-radius: 2px; animation: scrollBounce 1.5s ease-in-out infinite; }
+
+    /* Hero 2-col layout */
+    .hero-cols { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2xl); align-items: center; }
+
+    /* Stats Section */
+    .stats-strip {
+      background: var(--navy-mid);
+      border-top: 1px solid rgba(201,168,76,0.12);
+      border-bottom: 1px solid rgba(201,168,76,0.12);
+      padding: var(--space-xl) 0;
+    }
+    .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: var(--space-lg); }
+
+    /* Why Us */
+    .why-us-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: var(--space-lg); }
+    .why-card {
+      background: var(--navy-mid); border: 1px solid rgba(201,168,76,0.1);
+      border-radius: var(--radius-lg); padding: 1.75rem; text-align: center;
+      transition: all var(--transition-normal);
+    }
+    .why-card:hover {
+      border-color: rgba(201,168,76,0.35); transform: translateY(-6px);
+      box-shadow: var(--shadow-card);
+    }
+    .why-icon { font-size: 2.2rem; margin-bottom: var(--space-sm); }
+    .why-card h4 { font-size: 1rem; color: var(--white); margin-bottom: 0.4rem; }
+    .why-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* Featured Products */
+    .products-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: var(--space-lg); }
+
+    /* Testimonials Carousel */
+    .testimonials-wrap { overflow: hidden; }
+    .testimonial-track {
+      display: flex; transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .testimonial-track .testimonial-card {
+      flex: 0 0 calc(33.333% - 1rem); min-width: 0; margin-right: 1.5rem;
+    }
+    .carousel-controls {
+      display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: var(--space-xl);
+    }
+    .carousel-btn {
+      width: 48px; height: 48px; border-radius: 50%;
+      border: 2px solid rgba(201,168,76,0.3); background: var(--navy-mid);
+      color: var(--gold); font-size: 1.1rem; display: flex; align-items: center;
+      justify-content: center; cursor: pointer; transition: all var(--transition-fast);
+    }
+    .carousel-btn:hover { background: var(--gold); border-color: var(--gold); color: var(--navy); }
+
+    /* Process */
+    .process-section { background: var(--navy-mid); }
+
+    /* CTA Banner */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--navy-mid) 0%, var(--navy-light) 50%, var(--navy-mid) 100%);
+      border: 1px solid rgba(201,168,76,0.2); border-radius: var(--radius-xl);
+      padding: var(--space-2xl); text-align: center; position: relative; overflow: hidden;
+    }
+    .cta-banner::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(201,168,76,0.08) 0%, transparent 70%);
+    }
+    .cta-banner-content { position: relative; z-index: 1; }
+
+    @media (max-width: 1024px) {
+      .why-us-grid, .stats-grid { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 768px) {
+      .hero-cols { grid-template-columns: 1fr; }
+      .hero-image-col { display: none; }
+      .why-us-grid, .stats-grid { grid-template-columns: repeat(2,1fr); }
+      .products-grid { grid-template-columns: repeat(2,1fr); }
+      .testimonial-track .testimonial-card { flex: 0 0 calc(100% - 1rem); }
+    }
+    @media (max-width: 480px) {
+      .products-grid { grid-template-columns: 1fr; }
+      .why-us-grid { grid-template-columns: 1fr 1fr; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════
+     ALERT BAR
+══════════════════════════════════════════════════════════ -->
+<!-- ══════════════════════════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════════════════════════ -->
+<nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <div class="nav-inner">
+      <!-- Logo -->
+      <a href="index.html" class="nav-logo" aria-label="Trophy & Awards Home">
+        <span class="nav-logo-icon" style="font-size:2rem;"><i class="fa-solid fa-trophy" style="color: var(--gold);"></i></span>
+        <span class="nav-logo-text">
+          <span class="brand-name">Trophy & Awards</span>
+          <span class="brand-sub">Engraving Shop</span>
+        </span>
+      </a>
+
+      <!-- Desktop Links -->
+      <ul class="nav-links" role="list">
+        <li><a href="index.html" class="nav-link" id="nav-home">Home</a></li>
+        <li><a href="home2.html" class="nav-link" id="nav-home2">Home 2</a></li>
+        <li><a href="about.html" class="nav-link" id="nav-about">About</a></li>
+        <li><a href="engraving-services.html" class="nav-link" id="nav-services">Engraving</a></li>
+        <li><a href="products.html" class="nav-link" id="nav-products">Products</a></li>
+        <li><a href="materials.html" class="nav-link" id="nav-materials">Materials</a></li>
+        <li><a href="contact.html" class="nav-link" id="nav-contact">Contact</a></li>
+      </ul>
+
+      <!-- CTA -->
+      <div class="nav-cta">
+        <a href="order.html" class="btn btn-primary btn-sm" id="nav-order-btn">
+          <i class="fa-solid fa-pen-nib"></i> Order Now
+        </a>
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle mobile menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Overlay -->
+<div class="mobile-overlay" id="mobile-overlay"></div>
+
+<!-- Mobile Menu -->
+<aside class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+  <div class="mobile-menu-header">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-icon" style="font-size:2rem;"><i class="fa-solid fa-trophy" style="color: var(--gold);"></i></span>
+      <span class="nav-logo-text">
+        <span class="brand-name">Trophy & Awards</span>
+        <span class="brand-sub">Engraving Shop</span>
+      </span>
+    </a>
+    <button class="mobile-close" id="mobile-close-btn" aria-label="Close menu">✕</button>
+  </div>
+  <nav class="mobile-nav-links" role="navigation">
+    <a href="index.html" class="mobile-nav-link"><span class="link-icon"><i class="fa-solid fa-house"></i></span>Home</a>
+    <a href="home2.html" class="mobile-nav-link"><span class="link-icon"><i class="fa-solid fa-star"></i></span>Home 2</a>
+    <a href="about.html" class="mobile-nav-link"><span class="link-icon"><i class="fa-solid fa-circle-info"></i></span>About Us</a>
+    <a href="engraving-services.html" class="mobile-nav-link"><span class="link-icon"><i class="fa-solid fa-pen-nib"></i></span>Engraving Services</a>
+    <a href="products.html" class="mobile-nav-link"><span class="link-icon"><i class="fa-solid fa-trophy"></i></span>Products</a>
+    <a href="materials.html" class="mobile-nav-link"><span class="link-icon"><i class="fa-regular fa-gem"></i></span>Materials & Options</a>
+    <a href="contact.html" class="mobile-nav-link"><span class="link-icon"><i class="fa-solid fa-phone"></i></span>Contact</a>
+  </nav>
+  <div class="mobile-menu-footer">
+    <a href="order.html" class="btn btn-primary">
+      <i class="fa-solid fa-pen-nib"></i> Order Now
+    </a>
+    <a href="contact.html#quote" class="mobile-quote-btn">Request a Free Quote →</a>
+  </div>
+</aside>
+
+<!-- ══════════════════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════════════════ -->
+<header class="hero home-hero" id="home-hero">
+  <div class="hero-bg" style="background-image: url('images/hero_main.png');"></div>
+  <div class="hero-overlay"></div>
+
+  <!-- Decorative rings -->
+  <div class="gold-ring gold-ring-1" style="top:-200px;right:-200px;"></div>
+  <div class="gold-ring gold-ring-2" style="top:-350px;right:-350px;"></div>
+
+  <div class="container hero-content" style="padding-top:8rem;padding-bottom:6rem;">
+    <div class="hero-cols">
+      <!-- Left -->
+      <div>
+        <div class="hero-eyebrow fade-up">
+          <i class="fa-solid fa-star text-gold"></i>
+          Premium Engraving Since 2005
+        </div>
+        <h1 class="hero-title fade-up anim-delay-1">
+          Celebrate <em class="shimmer-text">Excellence</em><br>
+          with Custom<br>
+          <span class="text-gold">Awards & Trophies</span>
+        </h1>
+        <p class="hero-subtitle fade-up anim-delay-2">
+          From laser-engraved crystal awards to hand-crafted sports trophies — 
+          we bring your recognition moments to life with precision, care, and elegance.
+        </p>
+        <div class="hero-actions fade-up anim-delay-3">
+          <a href="order.html" class="btn btn-primary btn-lg">
+            <i class="fa-solid fa-pen-nib"></i> Order Now
+          </a>
+          <a href="contact.html#quote" class="btn btn-outline btn-lg">
+            <i class="fa-regular fa-envelope"></i> Request a Quote
+          </a>
+        </div>
+        <div class="hero-badges fade-up anim-delay-4">
+          <span class="hero-badge"><span class="icon"><i class="fa-solid fa-bolt"></i></span>24-hr Rush Available</span>
+          <span class="hero-badge"><span class="icon"><i class="fa-solid fa-truck-fast"></i></span>Free Shipping Over $150</span>
+          <span class="hero-badge"><span class="icon"><i class="fa-solid fa-medal"></i></span>Bulk Order Discounts</span>
+        </div>
+      </div>
+      <!-- Right image col -->
+      <div class="hero-image-col fade-in anim-delay-2">
+        <div class="hero-img-frame float-slow">
+          <img src="images/crystal_award.png" alt="Premium crystal award with laser engraving" loading="eager" />
+        </div>
+        <div class="hero-floating-badge top-left badge-bounce">
+          <i class="fa-solid fa-star"></i> #1 Rated Shop
+        </div>
+        <div class="hero-floating-badge bottom-right badge-bounce anim-delay-2">
+          <i class="fa-solid fa-bolt"></i> Same Day Available
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="hero-scroll-indicator">
+    <span class="scroll-text">Scroll to explore</span>
+    <div class="scroll-wheel"><div class="scroll-dot"></div></div>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════════════════════
+     STATS STRIP
+══════════════════════════════════════════════════════════ -->
+<section class="stats-strip" aria-label="Key statistics">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <span class="stat-number counter-value" data-target="18" data-suffix="+">18+</span>
+        <span class="stat-label">Years of Excellence</span>
+      </div>
+      <div class="stat-item reveal delay-1">
+        <span class="stat-number counter-value" data-target="50000" data-suffix="+">50,000+</span>
+        <span class="stat-label">Awards Crafted</span>
+      </div>
+      <div class="stat-item reveal delay-2">
+        <span class="stat-number counter-value" data-target="4200" data-suffix="+">4,200+</span>
+        <span class="stat-label">Happy Clients</span>
+      </div>
+      <div class="stat-item reveal delay-3">
+        <span class="stat-number counter-value" data-target="24" data-suffix="hr">24hr</span>
+        <span class="stat-label">Rush Turnaround</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     FEATURED PRODUCTS
+══════════════════════════════════════════════════════════ -->
+<section class="section" id="featured-products" aria-label="Featured products">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Our Collections</span>
+      <h2>Award-Winning <span class="text-gradient">Products</span></h2>
+      <div class="gold-divider"></div>
+      <p>From sports trophies to crystal masterpieces — discover the perfect recognition award for every achievement.</p>
+    </div>
+    <div class="products-grid stagger-children">
+      <!-- Card 1 -->
+      <article class="product-card reveal" data-category="trophies">
+        <div class="product-img-wrap">
+          <img src="images/trophy_collection.png" alt="Gold championship trophy" loading="lazy" />
+          <span class="product-badge">Best Seller</span>
+          <div class="product-overlay">
+            <a href="products.html" class="btn btn-primary btn-sm">View All</a>
+            <a href="order.html" class="btn btn-outline btn-sm">Order</a>
+          </div>
+        </div>
+        <div class="product-body">
+          <div class="product-category">Trophies</div>
+          <div class="product-name">Championship Cup Trophy</div>
+          <p class="product-desc">Classic gold and silver cup trophies for sports events, tournaments, and competitions.</p>
+          <div class="product-footer">
+            <span class="product-price">From $24.99 <span>/ unit</span></span>
+            <a href="order.html" class="btn btn-primary btn-sm">Order</a>
+          </div>
+        </div>
+      </article>
+      <!-- Card 2 -->
+      <article class="product-card reveal delay-1" data-category="crystal">
+        <div class="product-img-wrap">
+          <img src="images/crystal_award.png" alt="Crystal recognition award" loading="lazy" />
+          <span class="product-badge">Premium</span>
+          <div class="product-overlay">
+            <a href="products.html" class="btn btn-primary btn-sm">View All</a>
+            <a href="order.html" class="btn btn-outline btn-sm">Order</a>
+          </div>
+        </div>
+        <div class="product-body">
+          <div class="product-category">Crystal Awards</div>
+          <div class="product-name">Prestige Crystal Award</div>
+          <p class="product-desc">Stunning laser-engraved crystal awards ideal for corporate recognition and executive gifts.</p>
+          <div class="product-footer">
+            <span class="product-price">From $49.99 <span>/ unit</span></span>
+            <a href="order.html" class="btn btn-primary btn-sm">Order</a>
+          </div>
+        </div>
+      </article>
+      <!-- Card 3 -->
+      <article class="product-card reveal delay-2" data-category="plaques">
+        <div class="product-img-wrap">
+          <img src="images/plaque_metal.png" alt="Engraved recognition plaque" loading="lazy" />
+          <div class="product-overlay">
+            <a href="products.html" class="btn btn-primary btn-sm">View All</a>
+            <a href="order.html" class="btn btn-outline btn-sm">Order</a>
+          </div>
+        </div>
+        <div class="product-body">
+          <div class="product-category">Plaques</div>
+          <div class="product-name">Executive Wood Plaque</div>
+          <p class="product-desc">Dark walnut plaques with engraved brass nameplate — perfect for employee recognition.</p>
+          <div class="product-footer">
+            <span class="product-price">From $34.99 <span>/ unit</span></span>
+            <a href="order.html" class="btn btn-primary btn-sm">Order</a>
+          </div>
+        </div>
+      </article>
+      <!-- Card 4 -->
+      <article class="product-card reveal delay-3" data-category="medals">
+        <div class="product-img-wrap">
+          <img src="images/medals_collection.png" alt="Sports medals collection" loading="lazy" />
+          <div class="product-overlay">
+            <a href="products.html" class="btn btn-primary btn-sm">View All</a>
+            <a href="order.html" class="btn btn-outline btn-sm">Order</a>
+          </div>
+        </div>
+        <div class="product-body">
+          <div class="product-category">Medals</div>
+          <div class="product-name">Sports Event Medals</div>
+          <p class="product-desc">Gold, silver and bronze medals with custom ribbons — perfect for all sporting events.</p>
+          <div class="product-footer">
+            <span class="product-price">From $8.99 <span>/ unit</span></span>
+            <a href="order.html" class="btn btn-primary btn-sm">Order</a>
+          </div>
+        </div>
+      </article>
+      <!-- Card 5 -->
+      <article class="product-card reveal delay-4" data-category="corporate">
+        <div class="product-img-wrap">
+          <img src="images/corporate_awards.png" alt="Corporate awards" loading="lazy" />
+          <span class="product-badge">New</span>
+          <div class="product-overlay">
+            <a href="products.html" class="btn btn-primary btn-sm">View All</a>
+            <a href="order.html" class="btn btn-outline btn-sm">Order</a>
+          </div>
+        </div>
+        <div class="product-body">
+          <div class="product-category">Corporate Awards</div>
+          <div class="product-name">Corporate Excellence Award</div>
+          <p class="product-desc">Glass and acrylic awards with logo engraving for corporate events and annual galas.</p>
+          <div class="product-footer">
+            <span class="product-price">From $59.99 <span>/ unit</span></span>
+            <a href="order.html" class="btn btn-primary btn-sm">Order</a>
+          </div>
+        </div>
+      </article>
+      <!-- Card 6 -->
+      <article class="product-card reveal delay-5" data-category="school">
+        <div class="product-img-wrap">
+          <img src="images/school_sports_awards.png" alt="School and sports awards" loading="lazy" />
+          <div class="product-overlay">
+            <a href="products.html" class="btn btn-primary btn-sm">View All</a>
+            <a href="order.html" class="btn btn-outline btn-sm">Order</a>
+          </div>
+        </div>
+        <div class="product-body">
+          <div class="product-category">School & Sports</div>
+          <div class="product-name">Academic Achievement Award</div>
+          <p class="product-desc">Colorful trophies, shields and medals for academic and sports excellence programs.</p>
+          <div class="product-footer">
+            <span class="product-price">From $12.99 <span>/ unit</span></span>
+            <a href="order.html" class="btn btn-primary btn-sm">Order</a>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="text-center mt-xl">
+      <a href="products.html" class="btn btn-outline btn-lg">
+        View All Products <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     WHY CHOOSE US
+══════════════════════════════════════════════════════════ -->
+<section class="section" style="background:var(--navy-mid);" aria-label="Why choose us">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Why Choose Us</span>
+      <h2>Trusted by <span class="text-gradient">Thousands</span></h2>
+      <div class="gold-divider"></div>
+      <p>We combine expert craftsmanship with the latest technology to deliver awards that truly inspire.</p>
+    </div>
+    <div class="why-us-grid">
+      <div class="why-card reveal">
+        <div class="why-icon"><i class="fa-solid fa-bullseye" style="color: var(--gold);"></i></div>
+        <h4>Precision Engraving</h4>
+        <p>State-of-the-art laser technology ensures flawless, detailed engravings every time.</p>
+      </div>
+      <div class="why-card reveal delay-1">
+        <div class="why-icon"><i class="fa-solid fa-bolt-lightning" style="color: var(--gold);"></i></div>
+        <h4>Fast Turnaround</h4>
+        <p>Standard 3–5 day delivery with 24-hour rush service available for urgent orders.</p>
+      </div>
+      <div class="why-card reveal delay-2">
+        <div class="why-icon"><i class="fa-regular fa-gem" style="color: var(--gold);"></i></div>
+        <h4>Premium Materials</h4>
+        <p>Crystal, glass, metal, wood, and acrylic — all sourced for maximum quality and elegance.</p>
+      </div>
+      <div class="why-card reveal delay-3">
+        <div class="why-icon"><i class="fa-solid fa-building-columns" style="color: var(--gold);"></i></div>
+        <h4>Corporate & School Packages</h4>
+        <p>Bulk discount programs for schools, sports clubs, and corporate clients. Save up to 40%.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     PROCESS
+══════════════════════════════════════════════════════════ -->
+<section class="section process-section" aria-label="How it works">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">How It Works</span>
+      <h2>Simple <span class="text-gradient">4-Step</span> Process</h2>
+      <div class="gold-divider"></div>
+      <p>From your idea to a beautifully engraved award in your hands — fast, easy, and stress-free.</p>
+    </div>
+    <div class="process-steps reveal">
+      <div class="process-step">
+        <div class="step-number">1</div>
+        <h4>Choose Product</h4>
+        <p>Browse our collection and select the perfect award or submit a custom request.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-number">2</div>
+        <h4>Submit Design</h4>
+        <p>Enter your engraving text, upload your logo, and choose your font style.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-number">3</div>
+        <h4>We Engrave</h4>
+        <p>Our experts craft your award with precision laser or rotary engraving.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-number">4</div>
+        <h4>Fast Delivery</h4>
+        <p>Receive your beautifully packaged awards with free shipping over $150.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     TESTIMONIALS
+══════════════════════════════════════════════════════════ -->
+<section class="section" aria-label="Customer testimonials">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Testimonials</span>
+      <h2>What Our <span class="text-gradient">Clients Say</span></h2>
+      <div class="gold-divider"></div>
+    </div>
+    <div class="testimonials-wrap">
+      <div class="testimonial-track" id="testimonial-track">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"The crystal awards we ordered for our annual gala were absolutely stunning. Every guest was impressed by the quality and detail of the engraving."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar"><img src="https://i.pravatar.cc/150?img=47" alt="Sarah Mitchell"></div>
+            <div class="testimonial-info">
+              <div class="name">Sarah Mitchell</div>
+              <div class="role">HR Director, TechVision Corp</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"Ordered 200 medals for our school sports day. Delivered on time, perfect quality, and the bulk discount saved us a lot. Will use again!"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar"><img src="https://i.pravatar.cc/150?img=11" alt="James Cartwright"></div>
+            <div class="testimonial-info">
+              <div class="name">James Cartwright</div>
+              <div class="role">PE Head, Westfield Academy</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"I needed a rush order for a surprise retirement plaque. They delivered beautifully in under 24 hours. Exceptional service and quality!"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar"><img src="https://i.pravatar.cc/150?img=5" alt="Amanda Roberts"></div>
+            <div class="testimonial-info">
+              <div class="name">Amanda Roberts</div>
+              <div class="role">Office Manager, Bloom & Associates</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"The laser engraving precision is unmatched. Our company logo looks perfect on the acrylic awards. A truly premium product at a fair price."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar"><img src="https://i.pravatar.cc/150?img=68" alt="Michael Chen"></div>
+            <div class="testimonial-info">
+              <div class="name">Michael Chen</div>
+              <div class="role">CEO, Meridian Solutions</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★☆</div>
+          <p class="testimonial-text">"Great selection of trophy styles for our local football league. Easy to customize and very competitive prices. Our players loved them!"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar"><img src="https://i.pravatar.cc/150?img=33" alt="Dave Thompson"></div>
+            <div class="testimonial-info">
+              <div class="name">Dave Thompson</div>
+              <div class="role">League Coordinator, Riverside FC</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-controls">
+      <button class="carousel-btn testimonial-prev" aria-label="Previous testimonial">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <button class="carousel-btn testimonial-next" aria-label="Next testimonial">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     ENGRAVING SERVICES HIGHLIGHT
+══════════════════════════════════════════════════════════ -->
+<section class="section" style="background:var(--navy-mid);" aria-label="Engraving services overview">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Expert Engraving</span>
+      <h2>Professional <span class="text-gradient">Engraving Services</span></h2>
+      <div class="gold-divider"></div>
+      <p>State-of-the-art technology combined with master craftsmanship for flawless results.</p>
+    </div>
+    <div class="grid-3 stagger-children" style="margin-bottom:var(--space-xl);">
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="fa-solid fa-wand-magic-sparkles" style="color: var(--gold);"></i></div>
+        <h3>Laser Engraving</h3>
+        <p>Ultra-precise CO₂ laser engraving on crystal, glass, acrylic and metal. Perfect detail, zero contact.</p>
+        <a href="engraving-services.html" class="btn btn-outline btn-sm mt-md">Learn More</a>
+      </div>
+      <div class="service-card reveal delay-1">
+        <div class="service-icon"><i class="fa-solid fa-gear" style="color: var(--gold);"></i></div>
+        <h3>Rotary Engraving</h3>
+        <p>Deep rotary engraving for metal plaques, trophies and awards requiring a bold, classic look.</p>
+        <a href="engraving-services.html" class="btn btn-outline btn-sm mt-md">Learn More</a>
+      </div>
+      <div class="service-card reveal delay-2">
+        <div class="service-icon"><i class="fa-solid fa-bezier-curve" style="color: var(--gold);"></i></div>
+        <h3>Logo Engraving</h3>
+        <p>Upload your artwork and we'll reproduce your logo with professional precision and clarity.</p>
+        <a href="engraving-services.html" class="btn btn-outline btn-sm mt-md">Learn More</a>
+      </div>
+    </div>
+    <div class="text-center">
+      <a href="engraving-services.html" class="btn btn-primary btn-lg">
+        <i class="fa-solid fa-pen-nib"></i> Explore All Services
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     CTA BANNER
+══════════════════════════════════════════════════════════ -->
+<section class="section" aria-label="Call to action">
+  <div class="container">
+    <div class="cta-banner reveal">
+      <div class="cta-banner-content">
+        <span class="section-tag">Ready to Order?</span>
+        <h2 class="mt-sm mb-md">Start Your <span class="text-gradient">Custom Award</span> Today</h2>
+        <p style="max-width:500px;margin:0 auto var(--space-xl);">
+          Upload your text, logo, and details — we'll handle the rest. 
+          Delivered beautifully packaged, ready to present.
+        </p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+          <a href="order.html" class="btn btn-primary btn-lg">
+            <i class="fa-solid fa-pen-nib"></i> Place Order Now
+          </a>
+          <a href="contact.html" class="btn btn-outline btn-lg">
+            <i class="fa-solid fa-headset"></i> Talk to Us First
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════════ -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <span class="nav-logo-icon" style="font-size:2rem;"><i class="fa-solid fa-trophy" style="color: var(--gold);"></i></span>
+          <span class="nav-logo-text">
+            <span class="brand-name" style="font-size:1.2rem;">Trophy & Awards</span>
+            <span class="brand-sub">Engraving Shop</span>
+          </span>
+        </a>
+        <p>Crafting memories that last a lifetime. Premium custom trophies, plaques, and awards since 2005.</p>
+        <div class="footer-social">
+          <a href="#" class="social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-link" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <!-- Quick Links -->
+      <div>
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="engraving-services.html">Engraving Services</a></li>
+          <li><a href="materials.html">Materials & Options</a></li>
+          <li><a href="order.html">Order Now</a></li>
+        </ul>
+      </div>
+      <!-- Products -->
+      <div>
+        <h4 class="footer-heading">Products</h4>
+        <ul class="footer-links">
+          <li><a href="products.html">Trophies</a></li>
+          <li><a href="products.html">Plaques</a></li>
+          <li><a href="products.html">Medals</a></li>
+          <li><a href="products.html">Crystal Awards</a></li>
+          <li><a href="products.html">Corporate Awards</a></li>
+          <li><a href="products.html">School & Sports</a></li>
+        </ul>
+      </div>
+      <!-- Contact -->
+      <div>
+        <h4 class="footer-heading">Contact Us</h4>
+        <div class="footer-contact-item">
+          <span class="icon"><i class="fa-solid fa-phone" style="color: var(--gold);"></i></span>
+          <span>+1 (555) Award-01<br>Mon–Fri 8am–6pm</span>
+        </div>
+        <div class="footer-contact-item">
+          <span class="icon"><i class="fa-solid fa-envelope" style="color: var(--gold);"></i></span>
+          <span>info@trophyengraving.com</span>
+        </div>
+        <div class="footer-contact-item">
+          <span class="icon"><i class="fa-solid fa-location-dot" style="color: var(--gold);"></i></span>
+          <span>123 Craftsmen Blvd<br>Award City, AC 45678</span>
+        </div>
+        <div class="footer-contact-item">
+          <span class="icon"><i class="fa-regular fa-clock" style="color: var(--gold);"></i></span>
+          <span>Mon–Sat: 8am – 7pm<br>Sun: 10am – 4pm</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="footer-bottom">
+      <p>© 2025 Trophy & Awards Engraving Shop. All rights reserved.</p>
+      <div class="footer-badges">
+        <span class="badge badge-gold">SSL Secured</span>
+        <span class="badge badge-silver">Fast Shipping</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button id="back-to-top" aria-label="Back to top">
+  <i class="fa-solid fa-chevron-up"></i>
+</button>
+
+<script src="js/main.js"></script>
+</body>
+</html>
