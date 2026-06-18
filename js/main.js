@@ -246,6 +246,52 @@
     }, { passive: true });
   }
 
+  // ─── Theme & RTL Toggles ─────────────────────────────────
+  const themeToggle = document.getElementById('theme-toggle');
+  const rtlToggle = document.getElementById('rtl-toggle');
+  
+  // Init Theme
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light') {
+    document.documentElement.classList.add('light-theme');
+    if (themeToggle) themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+  } else {
+    document.documentElement.classList.remove('light-theme');
+    if (themeToggle) themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+  }
+
+  // Init RTL
+  const savedRtl = localStorage.getItem('rtl');
+  if (savedRtl === 'true') {
+    document.documentElement.setAttribute('dir', 'rtl');
+    if (rtlToggle) rtlToggle.classList.add('active');
+  }
+
+  // Toggle Theme Event
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const isLight = document.documentElement.classList.toggle('light-theme');
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+      themeToggle.innerHTML = isLight ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+    });
+  }
+
+  // Toggle RTL Event
+  if (rtlToggle) {
+    rtlToggle.addEventListener('click', () => {
+      const isRtl = document.documentElement.getAttribute('dir') === 'rtl';
+      if (isRtl) {
+        document.documentElement.removeAttribute('dir');
+        localStorage.setItem('rtl', 'false');
+        rtlToggle.classList.remove('active');
+      } else {
+        document.documentElement.setAttribute('dir', 'rtl');
+        localStorage.setItem('rtl', 'true');
+        rtlToggle.classList.add('active');
+      }
+    });
+  }
+
   // ─── Init ────────────────────────────────────────────────
   setActiveNavLinks();
   updateBackToTop();
