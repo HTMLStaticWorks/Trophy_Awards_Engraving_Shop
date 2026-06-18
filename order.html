@@ -22,26 +22,26 @@
       background:var(--navy-mid);border:1px solid rgba(201,168,76,0.1);border-radius:var(--radius-xl);
       padding:3rem;box-shadow:var(--shadow-card);
     }
-    .order-step { margin-bottom:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,0.05); }
+    .order-step { margin-bottom:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid var(--navy-light); }
     .order-step:last-child { margin-bottom:0;padding-bottom:0;border-bottom:none; }
     
-    .step-header { display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem; }
+    .step-header { display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:1.5rem; }
     .step-number { 
-      width:36px;height:36px;border-radius:50%;background:var(--gold-gradient);color:var(--navy);
+      width:36px;height:36px;border-radius:50%;background:var(--gold-gradient);color:#0D1B2A;
       display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1rem;flex-shrink:0;
     }
     .step-header h3 { margin:0;font-size:1.4rem;color:var(--white); }
     
     .form-group { margin-bottom:1.5rem; }
     .form-group label { display:block;color:var(--white);margin-bottom:0.5rem;font-weight:500;font-size:0.9rem; }
-    .form-control { width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius-md);padding:0.8rem 1rem;color:var(--white);font-family:inherit;font-size:1rem;transition:all var(--transition-fast); }
-    .form-control:focus { outline:none;border-color:var(--gold);background:rgba(255,255,255,0.08); }
+    .form-control { width:100%;background:var(--navy-light);border:1px solid var(--navy-lighter);border-radius:var(--radius-md);padding:0.8rem 1rem;color:var(--white);font-family:inherit;font-size:1rem;transition:all var(--transition-fast); }
+    .form-control:focus { outline:none;border-color:var(--gold);background:var(--navy-light); }
     textarea.form-control { resize:vertical;min-height:100px; }
     
     .radio-group { display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem; }
     .radio-card {
-      border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius-md);padding:1rem;text-align:center;
-      cursor:pointer;transition:all var(--transition-fast);background:rgba(255,255,255,0.02);
+      border:1px solid var(--navy-lighter);border-radius:var(--radius-md);padding:1rem;text-align:center;
+      cursor:pointer;transition:all var(--transition-fast);background:var(--navy-light);
     }
     .radio-card:hover { border-color:rgba(201,168,76,0.3);background:rgba(201,168,76,0.05); }
     .radio-card.active { border-color:var(--gold);background:rgba(201,168,76,0.1);box-shadow:0 0 0 1px var(--gold); }
@@ -50,8 +50,8 @@
     .radio-card .title { font-weight:600;font-size:0.95rem;color:var(--white); }
     
     .file-upload {
-      border:2px dashed rgba(255,255,255,0.2);border-radius:var(--radius-md);padding:2rem;text-align:center;
-      cursor:pointer;transition:all var(--transition-fast);background:rgba(255,255,255,0.02);
+      border:2px dashed var(--navy-lighter);border-radius:var(--radius-md);padding:2rem;text-align:center;
+      cursor:pointer;transition:all var(--transition-fast);background:var(--navy-light);
     }
     .file-upload:hover { border-color:var(--gold);background:rgba(201,168,76,0.05); }
     .file-upload i { font-size:2.5rem;color:var(--text-muted);margin-bottom:1rem; }
@@ -99,6 +99,10 @@
     <a href="materials.html" class="mobile-nav-link"><span class="link-icon"><i class="fa-regular fa-gem"></i></span>Materials & Options</a>
     <a href="contact.html" class="mobile-nav-link"><span class="link-icon"><i class="fa-solid fa-phone"></i></span>Contact</a>
   </nav>
+  <div class="theme-rtl-controls mobile-theme-rtl">
+    <button class="btn-theme" aria-label="Toggle Theme" title="Toggle Theme"><i class="fa-solid fa-moon"></i></button>
+    <button class="btn-rtl" aria-label="Toggle RTL" title="Toggle RTL">RTL</button>
+  </div>
   <div class="mobile-menu-footer"><a href="order.html" class="btn btn-primary"><i class="fa-solid fa-pen-nib"></i> Order Now</a><a href="contact.html#quote" class="mobile-quote-btn">Request a Free Quote →</a></div>
 </aside>
 
@@ -249,7 +253,7 @@
       <div><h4 class="footer-heading">About</h4><ul class="footer-links"><li><a href="about.html">Our Story</a></li><li><a href="about.html">Our Team</a></li><li><a href="about.html">Our Values</a></li><li><a href="about.html">Our Journey</a></li></ul></div>
       <div><h4 class="footer-heading">Contact Us</h4><div class="footer-contact-item"><span class="icon"><i class="fa-solid fa-phone" style="color: var(--gold);"></i></span><span>+1 (555) Award-01</span></div><div class="footer-contact-item"><span class="icon"><i class="fa-solid fa-envelope" style="color: var(--gold);"></i></span><span>info@trophyengraving.com</span></div><div class="footer-contact-item"><span class="icon"><i class="fa-solid fa-location-dot" style="color: var(--gold);"></i></span><span>123 Craftsmen Blvd, Award City</span></div></div>
     </div>
-    <div class="footer-bottom"><p>© 2025 Trophy & Awards Engraving Shop. All rights reserved.</p><div class="footer-badges"><span class="badge badge-gold">SSL Secured</span><span class="badge badge-silver">Fast Shipping</span></div></div>
+    <div class="footer-bottom"><p>© 2026 Trophy & Awards Engraving Shop. All rights reserved.</p><div class="footer-badges"><span class="badge badge-gold">SSL Secured</span><span class="badge badge-silver">Fast Shipping</span></div></div>
   </div>
 </footer>
 <button id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>

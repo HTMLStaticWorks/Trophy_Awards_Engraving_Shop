@@ -47,7 +47,7 @@
 
     .product-hidden { display: none; }
 
-    @media (max-width: 992px) { .products-page-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 1024px) { .products-page-grid { grid-template-columns: repeat(2,1fr); } }
     @media (max-width: 640px)  { .products-page-grid { grid-template-columns: 1fr; } }
   </style>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 576 512%22><path fill=%22%23c9a84c%22 d=%22M400 0H176c-26.5 0-48.1 21.8-47.1 48.2c.2 5.3 .4 10.6 .7 15.8H24C10.7 64 0 74.7 0 88c0 92.6 33.5 157 78.5 200.7c44.3 43.1 98.3 64.8 138.1 75.8c23.4 6.5 39.4 26 39.4 45.6c0 20.9-17 37.9-37.9 37.9H192c-17.7 0-32 14.3-32 32s14.3 32 32 32h192c17.7 0 32-14.3 32-32s-14.3-32-32-32h-26.1c-20.9 0-37.9-17-37.9-37.9c0-19.6 16-39.2 39.4-45.6c39.9-11 93.9-32.7 138.2-75.8C542.5 245 576 180.6 576 88c0-13.3-10.7-24-24-24h-105.5c.3-5.2 .5-10.5 .7-15.8C448.1 21.8 426.5 0 400 0zM48 88H132.8c2.8 44.5 9 86.8 18.2 124.6C103 175.7 48 123.6 48 88zM425 212.6c9.3-37.8 15.4-80.1 18.2-124.6H528c0 35.6-55 87.7-103 124.6z%22/></svg>" type="image/svg+xml">
@@ -102,6 +102,10 @@
     <a href="materials.html" class="mobile-nav-link"><span class="link-icon"><i class="fa-regular fa-gem"></i></span>Materials & Options</a>
     <a href="contact.html" class="mobile-nav-link"><span class="link-icon"><i class="fa-solid fa-phone"></i></span>Contact</a>
   </nav>
+  <div class="theme-rtl-controls mobile-theme-rtl">
+    <button class="btn-theme" aria-label="Toggle Theme" title="Toggle Theme"><i class="fa-solid fa-moon"></i></button>
+    <button class="btn-rtl" aria-label="Toggle RTL" title="Toggle RTL">RTL</button>
+  </div>
   <div class="mobile-menu-footer">
     <a href="order.html" class="btn btn-primary"><i class="fa-solid fa-pen-nib"></i> Order Now</a>
     <a href="contact.html#quote" class="mobile-quote-btn">Request a Free Quote →</a>
@@ -284,7 +288,7 @@
 
       <article class="product-card reveal delay-3" data-category="crystal">
         <div class="product-img-wrap">
-          <img src="images/crystal_award.png" alt="Diamond crystal award" loading="lazy" />
+          <img src="images/diamond_crystal_award.png" alt="Diamond crystal award" loading="lazy" />
           <span class="product-badge">New</span>
           <div class="product-overlay">
             <button class="btn btn-primary btn-sm" onclick="openProductModal('crystal-diamond')">View Details</button>
@@ -387,16 +391,16 @@
 <!-- Bulk Order CTA -->
 <section class="section" style="background:var(--navy-mid);">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-2xl);align-items:center;">
+    <div class="about-split">
       <div class="reveal-left">
         <span class="section-tag">Bulk Orders</span>
         <h2 class="mt-sm">Save Big on <span class="text-gradient">Large Orders</span></h2>
         <p class="mt-md">Schools, sports clubs, and corporations enjoy exclusive volume pricing. The more you order, the more you save.</p>
-        <ul style="margin-top:var(--space-md);display:flex;flex-direction:column;gap:0.6rem;">
-          <li style="display:flex;gap:0.5rem;color:var(--white-70);font-size:0.9rem;"><i class="fa-solid fa-check" style="color:var(--gold)"></i> 10–49 units: Save 10%</li>
-          <li style="display:flex;gap:0.5rem;color:var(--white-70);font-size:0.9rem;"><i class="fa-solid fa-check" style="color:var(--gold)"></i> 50–99 units: Save 20%</li>
-          <li style="display:flex;gap:0.5rem;color:var(--white-70);font-size:0.9rem;"><i class="fa-solid fa-check" style="color:var(--gold)"></i> 100+ units: Save 35%+</li>
-          <li style="display:flex;gap:0.5rem;color:var(--white-70);font-size:0.9rem;"><i class="fa-solid fa-check" style="color:var(--gold)"></i> Custom program pricing available</li>
+        <ul style="margin-top:var(--space-md);display:inline-flex;flex-direction:column;gap:0.6rem;text-align:left;">
+          <li style="display:flex;gap:0.5rem;align-items:flex-start;justify-content:flex-start;color:var(--white-70);font-size:0.9rem;text-align:left;"><i class="fa-solid fa-check" style="color:var(--gold)"></i> 10–49 units: Save 10%</li>
+          <li style="display:flex;gap:0.5rem;align-items:flex-start;justify-content:flex-start;color:var(--white-70);font-size:0.9rem;text-align:left;"><i class="fa-solid fa-check" style="color:var(--gold)"></i> 50–99 units: Save 20%</li>
+          <li style="display:flex;gap:0.5rem;align-items:flex-start;justify-content:flex-start;color:var(--white-70);font-size:0.9rem;text-align:left;"><i class="fa-solid fa-check" style="color:var(--gold)"></i> 100+ units: Save 35%+</li>
+          <li style="display:flex;gap:0.5rem;align-items:flex-start;justify-content:flex-start;color:var(--white-70);font-size:0.9rem;text-align:left;"><i class="fa-solid fa-check" style="color:var(--gold)"></i> Custom program pricing available</li>
         </ul>
         <a href="contact.html" class="btn btn-primary btn-lg mt-xl">Get a Bulk Quote</a>
       </div>
@@ -451,7 +455,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2025 Trophy & Awards Engraving Shop. All rights reserved.</p>
+      <p>© 2026 Trophy & Awards Engraving Shop. All rights reserved.</p>
       <div class="footer-badges"><span class="badge badge-gold">SSL Secured</span><span class="badge badge-silver">Fast Shipping</span></div>
     </div>
   </div>
@@ -495,15 +499,15 @@ const products = {
       { label: 'Includes', value: 'Velvet Gift Box' },
     ]
   },
-  'crystal-prestige': {
-    title: 'Prestige Crystal Award',
-    img: 'images/crystal_award.png',
-    desc: 'Hand-polished optical crystal award with deep laser engraving. The perfect premium gift for executive recognition, corporate milestones, and retirement ceremonies.',
+  'plaque-metal': {
+    title: 'Brushed Metal Honor Plaque',
+    img: 'images/corporate_awards.png',
+    desc: 'Sleek aluminum plaque with black printed or laser-engraved text. Features a clean, brushed metallic finish, suitable for modern offices and recognition displays.',
     specs: [
-      { label: 'Material', value: 'Optical Crystal Glass' },
-      { label: 'Sizes', value: '6", 8", 10" tall' },
-      { label: 'Engraving', value: 'Deep Laser 3D' },
-      { label: 'Includes', value: 'Velvet Lined Gift Box' },
+      { label: 'Material', value: 'Brushed Aluminum' },
+      { label: 'Sizes', value: '6"×8", 8"×10", 9"×12"' },
+      { label: 'Engraving', value: 'Laser Engraving' },
+      { label: 'Mounting', value: 'Keyhole slots on back' },
     ]
   },
   'medal-sports': {
@@ -517,6 +521,83 @@ const products = {
       { label: 'Min Qty', value: '10 units' },
     ]
   },
+  'medal-academic': {
+    title: 'Academic Achievement Medal',
+    img: 'images/school_sports_awards.png',
+    desc: 'Academic achievement medals with a prestigious enamel finish, ideal for graduation ceremonies, spelling bees, science fairs, and school recognition.',
+    specs: [
+      { label: 'Material', value: 'Bronze / Enamel' },
+      { label: 'Diameter', value: '2" (50mm)' },
+      { label: 'Ribbon', value: 'Red, White & Blue V-neck' },
+      { label: 'Min Qty', value: '1 unit' },
+    ]
+  },
+  'crystal-prestige': {
+    title: 'Prestige Crystal Award',
+    img: 'images/crystal_award.png',
+    desc: 'Hand-polished optical crystal award with deep laser engraving. The perfect premium gift for executive recognition, corporate milestones, and retirement ceremonies.',
+    specs: [
+      { label: 'Material', value: 'Optical Crystal Glass' },
+      { label: 'Sizes', value: '6", 8", 10" tall' },
+      { label: 'Engraving', value: 'Deep Laser 3D' },
+      { label: 'Includes', value: 'Velvet Lined Gift Box' },
+    ]
+  },
+  'crystal-diamond': {
+    title: 'Diamond Crystal Series',
+    img: 'images/diamond_crystal_award.png',
+    desc: 'A magnificent diamond-shaped optical crystal block that utilizes 3D subsurface laser engraving technology to place high-resolution text, logos, or portraits inside the crystal.',
+    specs: [
+      { label: 'Material', value: 'K9 Optical Crystal' },
+      { label: 'Width', value: '5", 7", 9" wide' },
+      { label: 'Technology', value: '3D Subsurface Laser' },
+      { label: 'Includes', value: 'Premium Gift Box' },
+    ]
+  },
+  'corporate-glass': {
+    title: 'Corporate Excellence Glass Award',
+    img: 'images/corporate_awards.png',
+    desc: 'Elegantly styled glass awards combining frosted accents and clear polished glass panels. Ideal for corporate milestones, leadership awards, and employee of the year recognition.',
+    specs: [
+      { label: 'Material', value: 'Tempered Jade Glass' },
+      { label: 'Thickness', value: '12mm (0.5")' },
+      { label: 'Sizes', value: '8" & 10" heights' },
+      { label: 'Base', value: 'Polished Black Glass' },
+    ]
+  },
+  'school-sports': {
+    title: 'Academic Excellence Trophy',
+    img: 'images/school_sports_awards.png',
+    desc: 'Bright, colorful, and fun trophies designed for school awards ceremonies, academic milestones, and junior sports competitions.',
+    specs: [
+      { label: 'Material', value: 'Molded Resin + Marble Base' },
+      { label: 'Height', value: '7" - 11"' },
+      { label: 'Engraving', value: 'Metal Plate on Base' },
+      { label: 'Min Qty', value: '5 units' },
+    ]
+  },
+  'school-league': {
+    title: 'League Championship Trophy',
+    img: 'images/trophy_collection.png',
+    desc: 'A massive cup trophy with side handles, mounted on a solid multi-tier dark wood base. The ultimate award for league champions, cup finals, and tournaments.',
+    specs: [
+      { label: 'Material', value: 'Metal Cup + Wood Base' },
+      { label: 'Height', value: '18", 22", 26" heights' },
+      { label: 'Engraving', value: 'Bespoke front plate' },
+      { label: 'Base Tiers', value: '1, 2, or 3 tiers' },
+    ]
+  },
+  'acrylic-award': {
+    title: 'Modern Acrylic Award',
+    img: 'images/corporate_awards.png',
+    desc: 'High-quality, durable clear acrylic awards with vivid full-color UV printing or clean frost laser engraving. Adds a sleek, modern touch to any trophy cabinet.',
+    specs: [
+      { label: 'Material', value: 'Cast Acrylic' },
+      { label: 'Thickness', value: '15mm (0.6")' },
+      { label: 'Print Type', value: 'Full-color UV or Laser' },
+      { label: 'Min Qty', value: '1 unit' },
+    ]
+  }
 };
 
 function openProductModal(id) {

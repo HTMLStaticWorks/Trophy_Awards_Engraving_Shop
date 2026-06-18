@@ -28,7 +28,8 @@
     .service-card-img img { width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease; }
     .service-hero-card:hover .service-card-img img { transform:scale(1.08); }
     .service-card-body { padding:1.5rem; display: flex; flex-direction: column; align-items: center; text-align: center; }
-    .service-card-body .service-num { font-size:2rem;font-family:var(--font-heading);color:rgba(201,168,76,0.2);line-height:1; }
+    .service-card-body .service-num { font-size:2.25rem;font-family:var(--font-heading);color:rgba(201,168,76,0.45);line-height:1;font-weight:700;transition:color var(--transition-normal); }
+    :root.light-theme .service-card-body .service-num { color:var(--gold-dark); }
     .service-card-body h3 { font-size:1.2rem;color:var(--white);margin:0.3rem 0 0.6rem; }
     .service-card-body p { font-size:0.875rem;color:var(--text-muted);line-height:1.65; }
     .service-tags { display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.75rem; justify-content: center; }
@@ -38,8 +39,8 @@
     .feature-split { display:grid;grid-template-columns:1fr 1fr;gap:var(--space-2xl);align-items:center; }
     .feature-img { border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-card); }
     .feature-img img { width:100%;height:380px;object-fit:cover; }
-    .feature-list { list-style:none;margin-top:var(--space-md);display:flex;flex-direction:column;gap:0.75rem; }
-    .feature-list li { display:flex;gap:0.75rem;align-items:flex-start;font-size:0.9rem;color:var(--white-70); }
+    .feature-list { list-style:none;margin-top:var(--space-md);display:inline-flex;flex-direction:column;gap:0.75rem;text-align:left; }
+    .feature-list li { display:flex;gap:0.75rem;align-items:flex-start;justify-content:flex-start;font-size:0.9rem;color:var(--white-70);text-align:left; }
     .feature-list li .check { color:var(--gold);font-size:1.1rem;flex-shrink:0;margin-top:0.05rem; }
 
     /* Gallery */
@@ -53,6 +54,10 @@
     .pricing-card {
       background:var(--navy-mid);border:1px solid rgba(201,168,76,0.12);border-radius:var(--radius-xl);
       padding:2rem;text-align:center;transition:all var(--transition-normal);position:relative;
+      display:flex;flex-direction:column;
+    }
+    .pricing-card .btn {
+      margin-top:auto;
     }
     .pricing-card.featured { border-color:var(--gold);box-shadow:var(--shadow-glow); }
     .pricing-card.featured::before { content:'Most Popular';position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--gold-gradient);color:var(--navy);font-size:0.75rem;font-weight:700;padding:0.3rem 1rem;border-radius:var(--radius-full); }
@@ -62,7 +67,7 @@
     .pricing-card h3 { font-size:1.1rem;color:var(--white);margin:var(--space-sm) 0 var(--space-md); }
     .pricing-card ul { list-style:none;margin-bottom:var(--space-lg);text-align:left; }
     .pricing-card ul li { font-size:0.875rem;color:var(--text-muted);padding:0.4rem 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;gap:0.5rem;align-items:center; }
-    .pricing-card ul li::before { content:'\\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900;color:var(--gold);flex-shrink:0; }
+    .pricing-card ul li::before { content:'\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900;color:var(--gold);flex-shrink:0; }
 
     @media(max-width:992px){
       .service-hero-grid,.pricing-cards { grid-template-columns:1fr 1fr; }
@@ -115,6 +120,10 @@
     <a href="materials.html" class="mobile-nav-link"><span class="link-icon"><i class="fa-regular fa-gem"></i></span>Materials & Options</a>
     <a href="contact.html" class="mobile-nav-link"><span class="link-icon"><i class="fa-solid fa-phone"></i></span>Contact</a>
   </nav>
+  <div class="theme-rtl-controls mobile-theme-rtl">
+    <button class="btn-theme" aria-label="Toggle Theme" title="Toggle Theme"><i class="fa-solid fa-moon"></i></button>
+    <button class="btn-rtl" aria-label="Toggle RTL" title="Toggle RTL">RTL</button>
+  </div>
   <div class="mobile-menu-footer"><a href="order.html" class="btn btn-primary"><i class="fa-solid fa-pen-nib"></i> Order Now</a><a href="contact.html#quote" class="mobile-quote-btn">Request a Free Quote →</a></div>
 </aside>
 
@@ -359,7 +368,7 @@
       <div><h4 class="footer-heading">Services</h4><ul class="footer-links"><li><a href="engraving-services.html">Laser Engraving</a></li><li><a href="engraving-services.html">Rotary Engraving</a></li><li><a href="engraving-services.html">Logo Engraving</a></li><li><a href="engraving-services.html">Custom Design</a></li><li><a href="engraving-services.html">3D Subsurface</a></li></ul></div>
       <div><h4 class="footer-heading">Contact Us</h4><div class="footer-contact-item"><span class="icon"><i class="fa-solid fa-phone" style="color: var(--gold);"></i></span><span>+1 (555) Award-01<br>Mon–Fri 8am–6pm</span></div><div class="footer-contact-item"><span class="icon"><i class="fa-solid fa-envelope" style="color: var(--gold);"></i></span><span>info@trophyengraving.com</span></div><div class="footer-contact-item"><span class="icon"><i class="fa-solid fa-location-dot" style="color: var(--gold);"></i></span><span>123 Craftsmen Blvd<br>Award City, AC 45678</span></div></div>
     </div>
-    <div class="footer-bottom"><p>© 2025 Trophy & Awards Engraving Shop. All rights reserved.</p><div class="footer-badges"><span class="badge badge-gold">SSL Secured</span><span class="badge badge-silver">Fast Shipping</span></div></div>
+    <div class="footer-bottom"><p>© 2026 Trophy & Awards Engraving Shop. All rights reserved.</p><div class="footer-badges"><span class="badge badge-gold">SSL Secured</span><span class="badge badge-silver">Fast Shipping</span></div></div>
   </div>
 </footer>
 <button id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>

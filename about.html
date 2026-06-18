@@ -45,7 +45,21 @@
       padding:2rem;text-align:center;transition:all var(--transition-normal);
     }
     .team-card:hover { border-color:rgba(201,168,76,0.3);transform:translateY(-6px);box-shadow:var(--shadow-card); }
-    .team-avatar { width:80px;height:80px;border-radius:50%;background:var(--navy-lighter);border:3px solid rgba(201,168,76,0.3);display:flex;align-items:center;justify-content:center;font-size:2.2rem;margin:0 auto var(--space-sm); }
+    .team-avatar {
+      width:80px;height:80px;border-radius:50%;background:var(--navy-lighter);border:3px solid rgba(201,168,76,0.3);
+      display:flex;align-items:center;justify-content:center;margin:0 auto var(--space-sm);
+      overflow:hidden; transition: all var(--transition-fast);
+    }
+    .team-card:hover .team-avatar {
+      border-color: var(--gold);
+      transform: scale(1.05);
+      box-shadow: var(--shadow-glow);
+    }
+    .team-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
     .team-card h4 { font-size:1rem;color:var(--white);margin-bottom:0.2rem; }
     .team-card .role { font-size:0.78rem;color:var(--gold);font-weight:600;letter-spacing:0.05em;text-transform:uppercase; }
     .team-card p { font-size:0.85rem;color:var(--text-muted);margin-top:0.75rem;line-height:1.6; }
@@ -104,6 +118,10 @@
     <a href="materials.html" class="mobile-nav-link"><span class="link-icon"><i class="fa-regular fa-gem"></i></span>Materials & Options</a>
     <a href="contact.html" class="mobile-nav-link"><span class="link-icon"><i class="fa-solid fa-phone"></i></span>Contact</a>
   </nav>
+  <div class="theme-rtl-controls mobile-theme-rtl">
+    <button class="btn-theme" aria-label="Toggle Theme" title="Toggle Theme"><i class="fa-solid fa-moon"></i></button>
+    <button class="btn-rtl" aria-label="Toggle RTL" title="Toggle RTL">RTL</button>
+  </div>
   <div class="mobile-menu-footer"><a href="order.html" class="btn btn-primary"><i class="fa-solid fa-pen-nib"></i> Order Now</a><a href="contact.html#quote" class="mobile-quote-btn">Request a Free Quote →</a></div>
 </aside>
 
@@ -121,7 +139,7 @@
 <!-- Story -->
 <section class="section">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-2xl);align-items:center;">
+    <div class="about-split">
       <div class="reveal-left">
         <span class="section-tag">Our Story</span>
         <h2 class="mt-sm">Crafting <span class="text-gradient">Excellence</span> Since 2005</h2>
@@ -139,7 +157,7 @@
 <!-- Stats -->
 <section class="section" style="background:var(--navy-mid);">
   <div class="container">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-xl);text-align:center;">
+    <div class="grid-4" style="gap:var(--space-xl);text-align:center;">
       <div class="reveal"><span class="stat-number counter-value" data-target="18" data-suffix="+">18+</span><span class="stat-label">Years in Business</span></div>
       <div class="reveal delay-1"><span class="stat-number counter-value" data-target="50000" data-suffix="+">50k+</span><span class="stat-label">Awards Crafted</span></div>
       <div class="reveal delay-2"><span class="stat-number counter-value" data-target="4200" data-suffix="+">4.2k+</span><span class="stat-label">Satisfied Clients</span></div>
@@ -151,7 +169,7 @@
 <!-- Company Timeline -->
 <section class="section">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-2xl);align-items:flex-start;">
+    <div class="about-split" style="align-items:flex-start;">
       <div class="reveal-left">
         <span class="section-tag">History</span>
         <h2 class="mt-sm mb-xl">Our <span class="text-gradient">Journey</span></h2>
@@ -251,21 +269,21 @@
     </div>
     <div class="team-grid stagger-children">
       <div class="team-card reveal">
-        <div class="team-avatar">👨‍🔧</div>
+        <div class="team-avatar"><img src="images/robert_portrait.png" alt="Robert Harrison" loading="lazy" /></div>
         <h4>Robert Harrison</h4>
         <div class="role">Founder & Master Engraver</div>
         <p>With 25+ years in the craft, Robert oversees every custom job personally and trains our engraving team to his exacting standards.</p>
         <div class="experience">25 Years Experience</div>
       </div>
       <div class="team-card reveal delay-1">
-        <div class="team-avatar">👩‍🎨</div>
+        <div class="team-avatar"><img src="images/emily_portrait.png" alt="Emily Chen" loading="lazy" /></div>
         <h4>Emily Chen</h4>
         <div class="role">Lead Designer</div>
         <p>Emily translates client visions into stunning engraving layouts, specializing in complex logo reproduction and bespoke designs.</p>
         <div class="experience">12 Years Experience</div>
       </div>
       <div class="team-card reveal delay-2">
-        <div class="team-avatar">👨‍💻</div>
+        <div class="team-avatar"><img src="images/marcus_portrait.png" alt="Marcus Williams" loading="lazy" /></div>
         <h4>Marcus Williams</h4>
         <div class="role">Laser Technology Specialist</div>
         <p>Our resident expert in laser systems, Marcus ensures every machine is calibrated perfectly for flawless results on every material.</p>
@@ -284,7 +302,7 @@
       <div><h4 class="footer-heading">About</h4><ul class="footer-links"><li><a href="about.html">Our Story</a></li><li><a href="about.html">Our Team</a></li><li><a href="about.html">Our Values</a></li><li><a href="about.html">Our Journey</a></li></ul></div>
       <div><h4 class="footer-heading">Contact Us</h4><div class="footer-contact-item"><span class="icon"><i class="fa-solid fa-phone" style="color: var(--gold);"></i></span><span>+1 (555) Award-01</span></div><div class="footer-contact-item"><span class="icon"><i class="fa-solid fa-envelope" style="color: var(--gold);"></i></span><span>info@trophyengraving.com</span></div><div class="footer-contact-item"><span class="icon"><i class="fa-solid fa-location-dot" style="color: var(--gold);"></i></span><span>123 Craftsmen Blvd, Award City</span></div></div>
     </div>
-    <div class="footer-bottom"><p>© 2025 Trophy & Awards Engraving Shop. All rights reserved.</p><div class="footer-badges"><span class="badge badge-gold">SSL Secured</span><span class="badge badge-silver">Fast Shipping</span></div></div>
+    <div class="footer-bottom"><p>© 2026 Trophy & Awards Engraving Shop. All rights reserved.</p><div class="footer-badges"><span class="badge badge-gold">SSL Secured</span><span class="badge badge-silver">Fast Shipping</span></div></div>
   </div>
 </footer>
 <button id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>

@@ -146,6 +146,10 @@
     <a href="materials.html" class="mobile-nav-link"><span class="link-icon"><i class="fa-regular fa-gem"></i></span>Materials & Options</a>
     <a href="contact.html" class="mobile-nav-link"><span class="link-icon"><i class="fa-solid fa-phone"></i></span>Contact</a>
   </nav>
+  <div class="theme-rtl-controls mobile-theme-rtl">
+    <button class="btn-theme" aria-label="Toggle Theme" title="Toggle Theme"><i class="fa-solid fa-moon"></i></button>
+    <button class="btn-rtl" aria-label="Toggle RTL" title="Toggle RTL">RTL</button>
+  </div>
   <div class="mobile-menu-footer">
     <a href="order.html" class="btn btn-primary">
       <i class="fa-solid fa-pen-nib"></i> Order Now
@@ -173,6 +177,30 @@
     </div>
   </div>
 </header>
+
+<!-- STATS STRIP -->
+<section class="section-sm" style="background:var(--navy-mid); border-bottom:1px solid rgba(201,168,76,0.12); border-top:1px solid rgba(201,168,76,0.12);">
+  <div class="container">
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:var(--space-lg); text-align:center;">
+      <div class="reveal">
+        <span class="stat-number">20+</span>
+        <span class="stat-label">Years of Experience</span>
+      </div>
+      <div class="reveal delay-1">
+        <span class="stat-number">50,000+</span>
+        <span class="stat-label">Awards Crafted</span>
+      </div>
+      <div class="reveal delay-2">
+        <span class="stat-number">100%</span>
+        <span class="stat-label">Satisfaction Rate</span>
+      </div>
+      <div class="reveal delay-3">
+        <span class="stat-number">24hr</span>
+        <span class="stat-label">Rush Turnaround</span>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- FEATURED CATEGORIES -->
 <section class="section" aria-label="Categories">
@@ -260,6 +288,47 @@
   </div>
 </section>
 
+<!-- FEATURED WORK GALLERY -->
+<section class="section" aria-label="Engraving gallery">
+  <div class="container">
+    <div class="text-center mb-xl">
+      <span class="section-tag">Our Portfolio</span>
+      <h2>Showcase of <span class="text-gradient">Bespoke Awards</span></h2>
+      <div class="gold-divider" style="margin: 1rem auto;"></div>
+      <p>Take a look at some of our recent custom engravings on premium materials.</p>
+    </div>
+    <div class="grid-3 stagger-children">
+      <div class="card reveal">
+        <div class="product-img-wrap" style="height:280px; overflow:hidden;">
+          <img src="images/crystal_award.png" alt="Crystal Award Design" style="width:100%; height:100%; object-fit:cover;" />
+        </div>
+        <div class="product-body" style="padding:1.5rem;">
+          <h4 style="color:var(--white); font-family:var(--font-heading); font-size:1.15rem;">Corporate Diamond Crystal</h4>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.4rem;">Precision 3D subsurface laser engraving on optical glass.</p>
+        </div>
+      </div>
+      <div class="card reveal delay-1">
+        <div class="product-img-wrap" style="height:280px; overflow:hidden;">
+          <img src="images/plaque_metal.png" alt="Wood Plaque Design" style="width:100%; height:100%; object-fit:cover;" />
+        </div>
+        <div class="product-body" style="padding:1.5rem;">
+          <h4 style="color:var(--white); font-family:var(--font-heading); font-size:1.15rem;">Walnut Appreciation Plaque</h4>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.4rem;">Classic brass plate engraving on solid wood base.</p>
+        </div>
+      </div>
+      <div class="card reveal delay-2">
+        <div class="product-img-wrap" style="height:280px; overflow:hidden;">
+          <img src="images/medals_collection.png" alt="Sports Medals" style="width:100%; height:100%; object-fit:cover;" />
+        </div>
+        <div class="product-body" style="padding:1.5rem;">
+          <h4 style="color:var(--white); font-family:var(--font-heading); font-size:1.15rem;">Championship Event Medals</h4>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.4rem;">Embossed zinc alloy medals with customized neck ribbons.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- TESTIMONIAL BANNER -->
 <section class="testimonial-banner">
   <div class="container reveal">
@@ -270,6 +339,46 @@
     </p>
     <div class="mt-md" style="font-weight:700;letter-spacing:0.1em;text-transform:uppercase;">
       — Sarah M., TechVision Inc.
+    </div>
+  </div>
+</section>
+
+<!-- FAQ SECTION -->
+<section class="section" style="background:var(--navy-mid);" aria-label="Frequently asked questions">
+  <div class="container" style="max-width:800px;">
+    <div class="text-center mb-xl">
+      <span class="section-tag">FAQ</span>
+      <h2>Frequently Asked <span class="text-gradient">Questions</span></h2>
+      <div class="gold-divider" style="margin: 1rem auto;"></div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:1.2rem;">
+      <div class="card reveal" style="padding:1.5rem; cursor:pointer;" onclick="toggleFaq(this)">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <h4 style="font-size:1.05rem; color:var(--white); margin:0; text-align:left !important;">Is there a minimum order quantity?</h4>
+          <span class="faq-icon" style="color:var(--gold); font-size:1.2rem;"><i class="fa-solid fa-chevron-down"></i></span>
+        </div>
+        <p class="faq-answer" style="display:none; margin-top:1rem; font-size:0.9rem; color:var(--text-muted); line-height:1.6; text-align:left !important; margin-bottom: 0;">
+          No, we have no minimum order limit! Whether you need one bespoke crystal trophy or a thousand medals for a sports league, we treat every order with the same care and attention to detail.
+        </p>
+      </div>
+      <div class="card reveal delay-1" style="padding:1.5rem; cursor:pointer;" onclick="toggleFaq(this)">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <h4 style="font-size:1.05rem; color:var(--white); margin:0; text-align:left !important;">What file formats do you accept for logos?</h4>
+          <span class="faq-icon" style="color:var(--gold); font-size:1.2rem;"><i class="fa-solid fa-chevron-down"></i></span>
+        </div>
+        <p class="faq-answer" style="display:none; margin-top:1rem; font-size:0.9rem; color:var(--text-muted); line-height:1.6; text-align:left !important; margin-bottom: 0;">
+          We accept high-resolution vector files such as AI, EPS, SVG, and PDF. We can also work with high-resolution PNG or JPEG files. Vectorization services are offered free of charge for complex logo setups.
+        </p>
+      </div>
+      <div class="card reveal delay-2" style="padding:1.5rem; cursor:pointer;" onclick="toggleFaq(this)">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <h4 style="font-size:1.05rem; color:var(--white); margin:0; text-align:left !important;">How long does engraving and shipping take?</h4>
+          <span class="faq-icon" style="color:var(--gold); font-size:1.2rem;"><i class="fa-solid fa-chevron-down"></i></span>
+        </div>
+        <p class="faq-answer" style="display:none; margin-top:1rem; font-size:0.9rem; color:var(--text-muted); line-height:1.6; text-align:left !important; margin-bottom: 0;">
+          Our standard turnaround is 3 to 5 business days from design proof approval. We also offer 24-hour express rush service if you have an urgent deadline. Shipping times vary depending on your location.
+        </p>
+      </div>
     </div>
   </div>
 </section>
@@ -343,7 +452,7 @@
 
     <!-- Bottom bar -->
     <div class="footer-bottom">
-      <p>© 2025 Trophy & Awards Engraving Shop. All rights reserved.</p>
+      <p>© 2026 Trophy & Awards Engraving Shop. All rights reserved.</p>
       <div class="footer-badges">
         <span class="badge badge-gold">SSL Secured</span>
         <span class="badge badge-silver">Fast Shipping</span>
@@ -358,5 +467,24 @@
 </button>
 
 <script src="js/main.js"></script>
+<script>
+  function toggleFaq(card) {
+    const answer = card.querySelector('.faq-answer');
+    const icon = card.querySelector('.faq-icon i');
+    const isVisible = answer.style.display === 'block';
+    
+    // Toggle answer visibility
+    answer.style.display = isVisible ? 'none' : 'block';
+    
+    // Toggle icon rotation / state
+    if (isVisible) {
+      icon.className = 'fa-solid fa-chevron-down';
+      card.style.borderColor = 'rgba(201, 168, 76, 0.1)';
+    } else {
+      icon.className = 'fa-solid fa-chevron-up';
+      card.style.borderColor = 'var(--gold)';
+    }
+  }
+</script>
 </body>
 </html>
