@@ -63,6 +63,19 @@
   --z-toast:  300;
 }
 
+:root.light-theme {
+  --navy:          #F5F7FA;
+  --navy-mid:      #FFFFFF;
+  --navy-light:    #E2E8F0;
+  --navy-lighter:  #CBD5E1;
+  --white:         #0D1B2A;
+  --white-70:      rgba(13, 27, 42, 0.7);
+  --text-muted:    #475569;
+  --shadow-card:   0 8px 32px rgba(0, 0, 0, 0.05);
+  --shadow-hover:  0 16px 48px rgba(0, 0, 0, 0.12);
+  --shadow-glow:   0 0 30px rgba(201, 168, 76, 0.2);
+}
+
 /* --- Reset & Base --- */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -391,10 +404,8 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg,
-    rgba(13,27,42,0.92) 0%,
-    rgba(13,27,42,0.75) 50%,
-    rgba(13,27,42,0.85) 100%);
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  opacity: 0.85;
 }
 
 .hero-content {
