@@ -247,50 +247,51 @@
   }
 
   // ─── Theme & RTL Toggles ─────────────────────────────────
-  const themeToggle = document.getElementById('theme-toggle');
-  const rtlToggle = document.getElementById('rtl-toggle');
+  const themeToggles = document.querySelectorAll('.btn-theme');
+  const rtlToggles = document.querySelectorAll('.btn-rtl');
   
   // Init Theme
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme === 'light') {
     document.documentElement.classList.add('light-theme');
-    if (themeToggle) themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+    themeToggles.forEach(btn => btn.innerHTML = '<i class="fa-solid fa-sun"></i>');
   } else {
     document.documentElement.classList.remove('light-theme');
-    if (themeToggle) themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+    themeToggles.forEach(btn => btn.innerHTML = '<i class="fa-solid fa-moon"></i>');
   }
 
   // Init RTL
   const savedRtl = localStorage.getItem('rtl');
   if (savedRtl === 'true') {
     document.documentElement.setAttribute('dir', 'rtl');
-    if (rtlToggle) rtlToggle.classList.add('active');
+    rtlToggles.forEach(btn => btn.classList.add('active'));
   }
 
   // Toggle Theme Event
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
+  themeToggles.forEach(toggle => {
+    toggle.addEventListener('click', () => {
       const isLight = document.documentElement.classList.toggle('light-theme');
       localStorage.setItem('theme', isLight ? 'light' : 'dark');
-      themeToggle.innerHTML = isLight ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+      const icon = isLight ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+      themeToggles.forEach(btn => btn.innerHTML = icon);
     });
-  }
+  });
 
   // Toggle RTL Event
-  if (rtlToggle) {
-    rtlToggle.addEventListener('click', () => {
+  rtlToggles.forEach(toggle => {
+    toggle.addEventListener('click', () => {
       const isRtl = document.documentElement.getAttribute('dir') === 'rtl';
       if (isRtl) {
         document.documentElement.removeAttribute('dir');
         localStorage.setItem('rtl', 'false');
-        rtlToggle.classList.remove('active');
+        rtlToggles.forEach(btn => btn.classList.remove('active'));
       } else {
         document.documentElement.setAttribute('dir', 'rtl');
         localStorage.setItem('rtl', 'true');
-        rtlToggle.classList.add('active');
+        rtlToggles.forEach(btn => btn.classList.add('active'));
       }
     });
-  }
+  });
 
   // ─── Init ────────────────────────────────────────────────
   setActiveNavLinks();
