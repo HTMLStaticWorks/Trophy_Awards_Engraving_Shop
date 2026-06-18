@@ -131,7 +131,7 @@ button {
 ::-webkit-scrollbar-thumb:hover { background: var(--gold-dark); }
 
 /* --- Selection --- */
-::selection { background: var(--gold); color: var(--navy); }
+::selection { background: var(--gold); color: #0D1B2A; }
 
 /* --- Typography --- */
 h1, h2, h3, h4, h5, h6 {
@@ -263,7 +263,7 @@ p { color: var(--white-70); line-height: 1.75; }
 
 .btn-primary {
   background: var(--gold-gradient);
-  color: var(--navy);
+  color: #0D1B2A;
   box-shadow: var(--shadow-gold);
 }
 .btn-primary:hover {
@@ -278,8 +278,11 @@ p { color: var(--white-70); line-height: 1.75; }
 }
 .btn-outline:hover {
   background: var(--gold);
-  color: var(--navy);
+  color: #0D1B2A;
   transform: translateY(-2px);
+}
+.hero-actions .btn-outline {
+  background: var(--navy);
 }
 
 .btn-secondary {
@@ -381,6 +384,11 @@ p { color: var(--white-70); line-height: 1.75; }
 
 select.form-control { cursor: pointer; }
 
+select.form-control option {
+  background: var(--navy-light);
+  color: var(--white);
+}
+
 textarea.form-control { resize: vertical; min-height: 120px; }
 
 /* --- Hero Base --- */
@@ -436,7 +444,8 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  line-height: 1;
+  line-height: 1.2;
+  padding: 0.1em 0;
   display: block;
 }
 .stat-label {
@@ -484,7 +493,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 .tag:hover, .tag.active {
   background: var(--gold);
   border-color: var(--gold);
-  color: var(--navy);
+  color: #0D1B2A;
 }
 
 /* --- Back to top --- */
@@ -499,7 +508,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--navy);
+  color: #0D1B2A;
   font-size: 1.25rem;
   z-index: var(--z-above);
   opacity: 0;
@@ -555,7 +564,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
   .section { padding: var(--space-2xl) 0; }
   
@@ -579,8 +588,12 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   .reveal-left, .reveal-right, .feature-content, .hero-cols > div, .about-split > div {
     text-align: center !important;
   }
-  ul, ol, li {
-    text-align: center !important;
+  ul, ol {
+    display: inline-block;
+    text-align: left !important;
+  }
+  li {
+    text-align: left !important;
   }
   .value-card, .contact-info-item, .footer-contact-item, .service-card, .product-body {
     flex-direction: column !important;
